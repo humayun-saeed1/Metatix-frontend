@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import "tailwindcss";
+
+:root {
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* Global font application */
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+/* Add cursor pointer to all clickable elements */
+button, a, input[type="submit"], input[type="button"], [role="button"] {
+  cursor: pointer !important;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F4F5F9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6E39CB;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a2ca0;
+}
+
+::-webkit-scrollbar-corner {
+    background: #F4F5F9;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #6E39CB #F4F5F9;
+}

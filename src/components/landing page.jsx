@@ -54,7 +54,7 @@ function LandingPage() {
             {/* Responsive Header */}
             <header className="flex flex-row justify-between px-4 py-3 md:p-4 items-center border-b border-gray-200 bg-white sticky top-0 z-50">
                 <div className="flex flex-row gap-2 sm:gap-5 items-center justify-center">
-                    <img src="/src/assets/signup/logo.png" alt="Ticketing System Logo" className="h-8 sm:h-10 md:h-12 object-contain" />
+                    <img src="signup/logo.png" alt="Ticketing System Logo" className="h-8 sm:h-10 md:h-12 object-contain" />
                     <h1 className="font-['Oswald'] font-bold text-[20px] sm:text-[24px] md:text-[30px] text-blue-600 leading-4 tracking-normal">MetaTix</h1>
                 </div>
                 
@@ -86,7 +86,7 @@ function LandingPage() {
             {/* Hero Section */}
             {/* Changed height classes for better mobile rendering while preserving desktop */}
             <div className="relative w-full h-[60vh] md:h-125 overflow-hidden">
-                <img src="src/assets/landingpage/hero.png" alt="hero" className="w-full h-full block object-cover object-center" />
+                <img src="landingpage/hero.png" alt="hero" className="w-full h-full block object-cover object-center" />
                 {/* Reduced horizontal padding on mobile (px-6 vs px-12) */}
                 <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-start px-6 md:px-12">
                     {/* Scaled text sizes for mobile while preserving md:text-7xl */}

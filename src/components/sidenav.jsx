@@ -114,7 +114,7 @@ function Sidebar() {
                 </button>
 
                 <div className={`flex items-center mb-10 h-12 shrink-0 ${!isExpanded ? "px-0 justify-center" : "px-8"}`}>
-                    <img src="/src/assets/signup/logo.png" alt="MetaTix Logo" className="h-10 w-10 object-contain shrink-0" />
+                    <img src="signup/logo.png" alt="MetaTix Logo" className="h-10 w-10 object-contain shrink-0" />
                     <span className={`font-['Oswald'] font-bold text-4xl text-blue-600 ml-4 tracking-wide ${!isExpanded ? "md:hidden" : "block"}`}>
                         MetaTix
                     </span>

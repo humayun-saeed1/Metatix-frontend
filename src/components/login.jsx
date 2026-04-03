@@ -112,7 +112,7 @@ function Login() {
             <div className="w-93.5 h-36 top-31 left-15 ml-15 mt-31 rotate-0 opacity-100">
                 <h1 className="font-['Lato'] font-bold text-[40px] leading-[100%] tracking-[0%] text-[#FFFFFF]">Secure access to your tickets and events. Log in to Metatix.</h1>
             </div>
-          <img src="/src/assets/signup/woman.png" alt="Welcome"  className="relative -top-30 left-35 rotate-0 opacity-100"/>
+          <img src="signup/woman.png" alt="Welcome"  className="relative -top-30 left-35 rotate-0 opacity-100"/>
         </div>
         
         {/* Right side form */}

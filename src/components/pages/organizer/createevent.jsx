@@ -39,7 +39,7 @@ function CreateEvent() {
     useEffect(() => {
         const fetchVenues = async () => {
             try {
-                const res = await axios.get("http://127.0.0.1:8000/events/venues", { headers }); 
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/events/venues", { headers }); 
                 setVenues(res.data);
             } catch (error) {
                 console.error("🚨 Failed to fetch venues:", error);
@@ -267,7 +267,7 @@ function CreateEvent() {
                 }))
             };
             
-            await axios.post("http://127.0.0.1:8000/events/create_event", payload, { headers });
+            await axios.post("https://metatix-backend-production.up.railway.app/events/create_event", payload, { headers });
             
             setShowSuccessModal(true);
             setTimeout(() => { window.location.href = "/organizer-dashboard"; }, 2500);

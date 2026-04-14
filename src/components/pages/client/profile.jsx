@@ -23,7 +23,7 @@ function Profile() {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/users/me", {
+                const response = await axios.get("https://metatix-backend-production.up.railway.app/users/me", {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setProfile(response.data);
@@ -103,7 +103,7 @@ function Profile() {
         formData.append("file", file);
 
         try {
-            const response = await axios.post("http://127.0.0.1:8000/users/me/profile-pic", formData, {
+            const response = await axios.post("https://metatix-backend-production.up.railway.app/users/me/profile-pic", formData, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "multipart/form-data",
@@ -147,7 +147,7 @@ function Profile() {
             if (field === "name") payload.name = editName.trim().replace(/\s+/g, ' '); 
             if (field === "email") payload.email = editEmail.trim().toLowerCase();
 
-            const response = await axios.patch("http://127.0.0.1:8000/users/update_me", payload, {
+            const response = await axios.patch("https://metatix-backend-production.up.railway.app/users/update_me", payload, {
                 headers: { 
                     Authorization: `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -175,7 +175,7 @@ function Profile() {
     const handleOrganizerRequest = async () => {
         setStatusMessage({ type: "", text: "" });
         try {
-            await axios.post("http://127.0.0.1:8000/users/request_organizer", {}, {
+            await axios.post("https://metatix-backend-production.up.railway.app/users/request_organizer", {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setProfile((prev) => ({ ...prev, is_organizer_pending: true }));

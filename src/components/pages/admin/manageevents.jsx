@@ -49,13 +49,13 @@ function ManageEvents() {
         setLoading(true);
         try {
             if (activeTab === "pending") {
-                const res = await axios.get("http://127.0.0.1:8000/admin/event-requests", { headers });
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/admin/event-requests", { headers });
                 setPendingEvents(res.data);
             } else if (activeTab === "all") {
-                const res = await axios.get("http://127.0.0.1:8000/events/all_events", { headers });
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/events/all_events", { headers });
                 setAllEvents(res.data);
             } else if (activeTab === "create") {
-                const res = await axios.get("http://127.0.0.1:8000/events/venues", { headers }); 
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/events/venues", { headers }); 
                 setVenues(res.data);
             }
         } catch (error) {
@@ -202,7 +202,7 @@ function ManageEvents() {
     // --- ACTIONS ---
     const handleApprove = async (eventId) => {
         try {
-            await axios.put(`http://127.0.0.1:8000/admin/approve_event/${eventId}`, {}, { headers });
+            await axios.put(`https://metatix-backend-production.up.railway.app/admin/approve_event/${eventId}`, {}, { headers });
             showToast("Event approved successfully!", "success");
             fetchData();
         } catch (error) {
@@ -213,7 +213,7 @@ function ManageEvents() {
     const handleRejectSubmit = async () => {
         if (!rejectReason.trim()) return showToast("Please provide a rejection reason.", "error");
         try {
-            await axios.put(`http://127.0.0.1:8000/admin/reject_event/${selectedEventId}`, { reason: rejectReason }, { headers });
+            await axios.put(`https://metatix-backend-production.up.railway.app/admin/reject_event/${selectedEventId}`, { reason: rejectReason }, { headers });
             showToast("Event rejected.", "success");
             setIsRejectModalOpen(false);
             fetchData();
@@ -224,7 +224,7 @@ function ManageEvents() {
 
     const confirmCancelEvent = async () => {
         try {
-            await axios.patch(`http://127.0.0.1:8000/events/cancel/${cancelModal.eventId}`, {}, { headers });
+            await axios.patch(`https://metatix-backend-production.up.railway.app/events/cancel/${cancelModal.eventId}`, {}, { headers });
             showToast("Event has been cancelled.", "success");
             setCancelModal({ isOpen: false, eventId: null });
             fetchData();
@@ -262,7 +262,7 @@ function ManageEvents() {
                 city: venueForm.city.trim().replace(/\s+/g, ' '),
                 total_capacity: parseInt(venueForm.capacity, 10) 
             };
-            await axios.post("http://127.0.0.1:8000/admin/create_venue", payload, { headers });
+            await axios.post("https://metatix-backend-production.up.railway.app/admin/create_venue", payload, { headers });
             
             setVenueForm({ name: "", city: "", capacity: "" }); 
             setSuccessModal({ isOpen: true, title: "Venue Created!", text: "The venue has been successfully added to the database." });
@@ -335,7 +335,7 @@ function ManageEvents() {
                 }))
             };
             
-            await axios.post("http://127.0.0.1:8000/events/create_event", payload, { headers });
+            await axios.post("https://metatix-backend-production.up.railway.app/events/create_event", payload, { headers });
             
             setEventForm({ title: "", description: "", venue_id: "" });
             setSchedules([{ schedule_name: "Main Event", start_time: "", end_time: "" }]);

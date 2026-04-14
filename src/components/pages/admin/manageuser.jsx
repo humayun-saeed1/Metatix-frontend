@@ -19,10 +19,10 @@ function ManageUsers() {
         try {
             const headers = { Authorization: `Bearer ${token}` };
             if (activeTab === "requests") {
-                const res = await axios.get("http://127.0.0.1:8000/admin/organizer_requests", { headers });
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/admin/organizer_requests", { headers });
                 setRequests(res.data);
             } else {
-                const res = await axios.get("http://127.0.0.1:8000/admin/all_users", { headers });
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/admin/all_users", { headers });
                 setAllUsers(res.data);
             }
         } catch (error) {
@@ -40,7 +40,7 @@ function ManageUsers() {
     // This handles Approving, Rejecting, Banning, Unbanning, Promoting, and Demoting!
     const handleAction = async (endpoint, successMessage) => {
         try {
-            await axios.put(`http://127.0.0.1:8000/admin/${endpoint}`, {}, {
+            await axios.put(`https://metatix-backend-production.up.railway.app/admin/${endpoint}`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert(successMessage);

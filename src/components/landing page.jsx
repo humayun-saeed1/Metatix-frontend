@@ -19,7 +19,7 @@ function LandingPage() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/events/all_events");
+                const response = await axios.get("https://metatix-backend-production.up.railway.app/events/all_events");
                 
                 // 🚨 ADD THESE TWO LINES:
                 console.log("🕵️‍♂️ EXACT FASTAPI RESPONSE:", response.data);

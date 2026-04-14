@@ -22,7 +22,7 @@ function OperationsDashboard() {
     const [activeCampaigns, setActiveCampaigns] = useState([]);
 
     const token = localStorage.getItem("access_token");
-    const API_BASE = "http://127.0.0.1:8000/admin"; 
+    const API_BASE = "https://metatix-backend-production.up.railway.app/admin"; 
 
     useEffect(() => {
         fetchStats();

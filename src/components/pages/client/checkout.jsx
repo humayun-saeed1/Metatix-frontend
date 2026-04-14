@@ -50,14 +50,14 @@ function Cart() {
                     payment_amount: item.total
                 };
 
-                const response = await axios.post("http://127.0.0.1:8000/booking/reserve", payload, {
+                const response = await axios.post("https://metatix-backend-production.up.railway.app/booking/reserve", payload, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 bookingIds.push(response.data.booking_id);
             }
 
             // Step 2: Get the Stripe Checkout URL from your new payment controller
-            const stripeRes = await axios.post("http://127.0.0.1:8000/stripe/create-cart-session", {
+            const stripeRes = await axios.post("https://metatix-backend-production.up.railway.app/stripe/create-cart-session", {
                 booking_ids: bookingIds
             }, {
                 headers: { Authorization: `Bearer ${token}` }

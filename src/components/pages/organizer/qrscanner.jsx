@@ -137,7 +137,7 @@ function ScanTickets() {
 
         try {
             const headers = { Authorization: `Bearer ${token}` };
-            const res = await axios.post(`http://127.0.0.1:8000/organizer/scan/${hash}`, {}, { headers });
+            const res = await axios.post(`https://metatix-backend-production.up.railway.app/organizer/scan/${hash}`, {}, { headers });
             
             setTicketData(res.data);
             setScanStatus("success");

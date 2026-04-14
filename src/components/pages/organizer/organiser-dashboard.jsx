@@ -26,12 +26,12 @@ function OrganizerDashboard() {
             const headers = { Authorization: `Bearer ${token}` };
             
             // Fetch Sales Data
-            const salesRes = await axios.get("http://127.0.0.1:8000/organizer/my-sales", { headers });
+            const salesRes = await axios.get("https://metatix-backend-production.up.railway.app/organizer/my-sales", { headers });
             setSalesData(salesRes.data);
 
             // Fetch Finances 
             // 🚨 Make sure this URL exactly matches your FastAPI route!
-            const financeRes = await axios.get("http://127.0.0.1:8000/payouts/financial-overview", { headers });
+            const financeRes = await axios.get("https://metatix-backend-production.up.railway.app/payouts/financial-overview", { headers });
             setFinances(financeRes.data);
 
         } catch (error) {
@@ -60,7 +60,7 @@ function OrganizerDashboard() {
     const handleStripeSetup = async () => {
         setSyncing(true);
         try {
-            const res = await axios.post("http://127.0.0.1:8000/payouts/onboard", {}, {
+            const res = await axios.post("https://metatix-backend-production.up.railway.app/payouts/onboard", {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             window.location.href = res.data.url; // Redirect to Stripe
@@ -74,7 +74,7 @@ function OrganizerDashboard() {
     const handleWithdraw = async () => {
         setSyncing(true);
         try {
-            await axios.post("http://127.0.0.1:8000/payouts/withdraw", {}, {
+            await axios.post("https://metatix-backend-production.up.railway.app/payouts/withdraw", {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             alert("Transfer Successful! The funds are on the way to your Stripe account.");

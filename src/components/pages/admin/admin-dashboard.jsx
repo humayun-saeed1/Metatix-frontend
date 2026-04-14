@@ -27,8 +27,8 @@ function AdminDashboard() {
             try {
                 const headers = { Authorization: `Bearer ${token}` };
                 const [statsRes, orgsRes] = await Promise.all([
-                    axios.get("http://127.0.0.1:8000/admin/platform-stats", { headers }),
-                    axios.get("http://127.0.0.1:8000/admin/approved-organizers", { headers })
+                    axios.get("https://metatix-backend-production.up.railway.app/admin/platform-stats", { headers }),
+                    axios.get("https://metatix-backend-production.up.railway.app/admin/approved-organizers", { headers })
                 ]);
                 
                 setStats(statsRes.data);
@@ -52,7 +52,7 @@ function AdminDashboard() {
         setSelectedOrgId(organizerId);
         setOrgLoading(true);
         try {
-            const response = await axios.get(`http://127.0.0.1:8000/admin/particular-organizer-stats/${organizerId}`, {
+            const response = await axios.get(`https://metatix-backend-production.up.railway.app/admin/particular-organizer-stats/${organizerId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setOrgStats(response.data);

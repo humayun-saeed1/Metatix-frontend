@@ -18,7 +18,7 @@ function MyEvents() {
             try {
                 const headers = { Authorization: `Bearer ${token}` };
                 // We use the sales endpoint because it perfectly lists all organizer events and their statuses!
-                const res = await axios.get("http://127.0.0.1:8000/organizer/my-sales", { headers });
+                const res = await axios.get("https://metatix-backend-production.up.railway.app/organizer/my-sales", { headers });
                 setEvents(res.data.events || []);
             } catch (error) {
                 console.error("🚨 Failed to fetch events:", error);
